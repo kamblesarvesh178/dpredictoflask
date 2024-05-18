@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Heart Disease Prediction</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css')}}">
+
+    <style>
+        body{
+            #background: #4d0026;
+            background: linear-gradient(to left, #667292 0%, #a2b9bc 100%);
+        }
+
+        footer a{
+          color: #fff;
+        }
+        footer a:hover{
+          color: #fff;
+        }
+        .centerdiv{
+          height: 15vh;
+          display: flex;
+          #justify-content: center;
+          align-items: center;
+        }
+        .centerdiv a{
+          height: 30px;
+          width: 30px;
+          background-color: #f5f6fa;
+          border-radius: 50px;
+          text-align: center;
+          margin: 5px;
+          line-height: 30px;
+          #box-shadow: 1px 4px 2px 2px #dcdde1;
+          position: relative;
+          overflow: hidden;
+        }
+        .centerdiv a i{
+          transition: all 0.3s linear;
+        }
+        .centerdiv a:hover i{
+          transform: scale(1.5);
+          color: #f5f6fa;
+        }
+        .centerdiv a:before{
+          content: "";
+          width: 120%; height: 120%;
+          position: absolute;
+          top: 90%; left: -50%;
+          background-color: #00a8ff;
+          transform: rotate(60deg);
+        }
+
+        .centerdiv a:hover:before{
+          animation: socialicons 0.8s 1;
+          animation-fill-mode: forwards;
+        }
+        @keyframes socialicons {
+
+          0%{ top: 90%; left: -50%;}
+          50%{ top: -60%; left: -10%;}
+          100%{ top: -10%; left: -10%}
+        }
+
+        .fa-facebook-f{
+          color: #e84393;
+        }
+        .fa-instagram{
+          color: #e84393;
+        }
+        .fa-github{
+          color: #e84118;
+        }
+        .fa-linkedin{
+          color: #0097e6;
+        }
+        .fa-twitter{
+          color: #0097e6;
+        }
+    </style>
+</style>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <style>
+          body {
+            background-image: url("../static/img/b1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* Additional background styles */
+          }
+        </style>
+    <title>Dpredicto</title>
+</head>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-warning" href="#">D'predicto</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/diabetes">Diabetes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/heart">Heart Disease</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/parkinsons">Perkinsons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/contact">Contact us</a>
+                </li>
+
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+</head>
+<body>
+
+    <h1>
+      <div style ="text-align:center">
+        <font color='white'>
+          Heart Disease Prediction
+        </font>
+      </div>
+    </h1>
+    <br>
+
+
+   <div class="wrapper">
+     <div class="container my-5">
+       <div class="row">
+         <div class="col-md-10 col-sm-6 mx-auto">
+           <form class="" action="/heart" method="post">
+             <div class="form-group">
+               <input type="number" name="age" id="age" class="form-control" required>
+               <label for="age" class="ph-area">Enter Your Age</label>
+             </div>
+
+             <div class="form-group">
+               <input type="number" name="sex" id="sex" class="form-control" required>
+               <label for="sex" class="ph-area">Enter Sex ( 1 - Male , 0 - Female )</label>
+             </div>
+
+             <div class="form-group">
+               <input type="number" name="cp" id="cp" class="form-control" required>
+               <label for="cp" class="ph-area">Enter the Type of Chest Pain</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="RBP" id="RBP" class="form-control" required>
+               <label for="RBP" class="ph-area">Enter the Resting Blood Pressure</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="chol" id="chol" class="form-control" required>
+               <label for="chol" class="ph-area">Enter Serum Cholestoral Value (mg/dl)(chol)</label>
+             </div>
+
+
+             <div class="form-group">
+               <input type="float" name="FBS" id="FBS" class="form-control" required>
+               <label for="FBS" class="ph-area">Enter the Fasting Blood Sugar Value ( >120 mg/dl)</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="RER" id="RER" class="form-control" required>
+               <label for="RER" class="ph-area">Enter the Resting Electro-cardiographic Results</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="thalach" id="thalach" class="form-control" required>
+               <label for="thalach" class="ph-area">Enter Maximum Heart Rate Achieved (thalach)</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="ex" id="ex" class="form-control" required>
+               <label for="ex" class="ph-area">Enter Exercise Induced Angina Value</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="sl" id="sl" class="form-control" required>
+               <label for="sl" class="ph-area">Enter the ST Depression Induced by Exercise</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="op" id="op" class="form-control" required>
+               <label for="op" class="ph-area">Enter the Slope of the peak Exercise ST Segment</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="ca" id="ca" class="form-control" required>
+               <label for="ca" class="ph-area">Enter Major Vessels colored by Flourosopy</label>
+             </div>
+
+             <div class="form-group">
+               <input type="float" name="thal" id="thal" class="form-control" required>
+               <label for="thal" class="ph-area">Enter the Thal Value ( 0 = Normal, 1 = Fixed Defect, 2 = Reversable )</label>
+             </div>
+
+
+           <div class="form-group">
+             <input type="submit" class="btn btn-primary" value="Submit">
+             <input type="reset" class="btn btn-danger" value="Reset">
+           </div>
+         </form>
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+   <div class="fin_res">
+       {% if label %}
+            {% if label == 1 %}
+                <h3 style = "color:red">Person has Heart Disease !</h3>
+            {% else %}
+                <h3 style ="color:green"> Person does not have Heart Disease !</h3>
+            {% endif %}
+       {% endif %}
+
+    </div>
+
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+   integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+   integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+
+</html>
